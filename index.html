@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Birthday Calculation</title>
+
+        <style type="text/css">
+            .birthday {
+                background-color: #f5f5f5;
+                border-radius: 5px;
+                box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+                height: 200px;
+                line-height: 150px;
+                margin: 100px auto;
+                position: relative;
+                text-align: center;
+                width: 500px;
+            }
+            #number {
+                background-color: transparent;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                height: 30px;
+                padding-left: 15px;
+                text-align: left;
+                width: 200px;
+            }
+            #button {
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                cursor: pointer;
+                padding: 7px 15px;
+            }
+            #year {
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 15px;
+            }
+        </style>
+    </head>
+<body>
+
+    <div class="birthday">
+        <form>
+            <input type="number" name="number" id="number" placeholder="Type Your Age......">
+            <input type="button" value="Find Birth Year" id="button">
+            <p id="year">Year</p>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        function birthCalculate() {
+            var number = document.getElementById("number").value;
+
+            if (number == "" || number == 0){
+                window.alert("Please type your correct age!");
+                return;
+            }
+
+            var date = new Date().getFullYear();
+            var birthYear = number - date;
+
+            document.getElementById("year").style.display = "block";
+            document.getElementById("year").innerHTML = "<h3 class='birthResult'>" + "Your Birth Year is " + birthYear + "</h3>";
+        }
+
+        document.getElementById("year").style.display = "none";
+        document.getElementById("button").onclick = function () {
+            birthCalculate();
+        }
+
+    </script>
+</body>
+</html>
